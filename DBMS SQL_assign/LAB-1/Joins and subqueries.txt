@@ -1,0 +1,76 @@
+1.Write a query which displays Staff Name, Department Code, Department Name, and Salary for all staff who earns more than 20000.
+
+SQL>select s.Staff_name,d.Dept_code,d.Dept_name,s.Staff_sal from Staff_Master s, Department_Master d where s.Dept_code=d.Dept_code 
+and s.Staff_sal>20000;
+
+STAFF_NAME                                          DEPT_CODE
+-------------------------------------------------- ----------
+DEPT_NAME                                           STAFF_SAL
+-------------------------------------------------- ----------
+Madhavi                                                    10
+IT                                                      21000
+
+2)Display Staff Code, Staff Name, Department Name, and his manager’s number and name. Label the columns Staff#, Staff,
+ Mgr#, Manager. 
+
+SQL> select s.staff_code as staff#,s.staff_name as staff,d.dept_name,s.mgr_code as mgr#,s.mgr_name as Manager from
+ Staff_Master s, Department_Master d where s.Dept_code=d.Dept_code;
+
+    STAFF# STAFF
+---------- --------------------------------------------------
+DEPT_NAME                                                MGR#
+-------------------------------------------------- ----------
+MANAGER
+--------------------
+      2305 Madhavi
+IT                                                       7305
+syrian
+
+3)Create a query that will display Student Code, Student Name, Book Code,
+ and Book Name for all students whose expected book return date is today.
+
+SQL> select s.student_code,s.student_name,t.book_code,b.book_name from student_Master s,Book_transactions t,book_Master b where s.student_code=t.student_code and
+  2  t.book_code=b.book_code and
+  3  to_char(t.book_expected_return_date,'dd mm yyyy') like to_char(sysdate,'dd mm yyyy');
+
+STUDENT_CODE STUDENT_NAME                                        BOOK_CODE
+------------ -------------------------------------------------- ----------
+BOOK_NAME
+--------------------------------------------------
+        1201 Priyanka                                                 6601
+DBMS
+
+         201 Prasanna                                                 6602
+CO
+
+         801 Aadhya                                                   6604
+Erkenci kus
+
+4)Create a query that will display Staff Code, Staff Name, Department Name, Designation name, Book Code, Book Name, 
+and Issue Date for only those staff who have taken any book in last 30 days. . 
+If required, make changes to the table to create such a scenario.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

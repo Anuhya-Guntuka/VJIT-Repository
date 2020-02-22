@@ -1,0 +1,144 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Fri Jan 24 06:27:17 2020
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+SQL> connect sys as sysdba
+Enter password:
+Connected.
+
+SQL> create table Emp(Empno number(4) not null,Ename varchar2(20),Job varchar2(9),Mgr number(4),
+Hiredate Date,Sal number(7,2),Comm number(7,2),Deptno number(2));
+
+Table created.
+
+SQL> create table Designation_Master(Design_code number(3) not null,Design_name varchar2(50));
+
+Table created.
+
+SQL> create table Department_Master(Dept_Code number(2) not null,Dept_name varchar2(50));
+
+Table created.
+
+SQL> create table Student_Master(Student_Code number(6) not null,Student_name varchar2(50) not null,Dept_Code number(2),
+Student_dob Date,Student_Address varchar2(20));
+
+Table created.
+
+SQL> create table Student_Marks(Student_Code number(6),Student_Year number not null,Subject1 number(3),
+Subject2 number(3),Subject3 number(3));
+
+Table created.
+
+SQL> create table Staff_Master(Staff_code number(8) not null,Staff_Name varchar2(50) not null,Design_code number,
+Dept_code number,HireDate date,Staff_dob date,Staff_address varchar2(240),Mgr_code number(8),Staff_sal number(10,2));
+
+Table created.
+
+SQL> create table Book_Master(Book_Code Number(10) not null,Book_Name varchar2(50) not null,Book_pub_year number,
+Book_pub_author varchar2(50) not null);
+
+Table created.
+
+SQL> create table Book_Transactions(Book_Code number,Student_code number,Staff_code number,Book_Issue_date 
+date not null,Book_expected_return_date date not null,Book_actual_return_date date);
+
+Table created.
+
+//Inserting values into Staff Master table/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SQL> insert into Staff_Master values(2301,'Divya',1201,12,'12-jan-1999','01-jan-1972','h-no:123,domalguda,hyderabad',
+7301,25000.00,'koushik');
+
+1 row created.
+
+SQL> insert into Staff_Master values(2302,'Sandhya',1101,11,'11-sep-2009','12-jun-1985','h-no:246,vidyanagar,hyderabad',7302,23000.00,'Kunaal');
+
+1 row created.
+
+SQL> insert into Staff_Master values(2303,'Pavani',1202,12,'10-sep-2001','10-sep-1979','h-no:356,Amberpet,hyderabad',7303,15000.00,'Vishu');
+
+1 row created.
+SQL> insert into Staff_Master values(2304,'Rashmitha',1102,11,'10-oct-2010','06-dec-1994','h-no:45-46,Mehdipatnam,hyderabad',7304,19000.00,'Farina');
+
+1 row created.
+
+SQL> insert into Staff_Master values(2305,'Madhavi',1001,10,'04-aug-2012','06-nov-1985','h-no:125,lakdikapool,hyderabad',7305,21000.00,'syrian');
+
+1 row created.
+
+SQL> insert into Staff_Master values(2306,'Sanem',1301,13,'21-jan-1999','13-jun-1972','vidyanagar,hyderabad',7306,15000.23,'singh');
+
+1 row created.
+
+SQL> insert into Staff_Master values(2306,'Anuhya',1104,11,'04-mar-2015','06-oct-1982','lakdikapool,hyderabad',null,15000.00,'chetan');
+
+1 row created.
+
+SQL> insert into Staff_Master values(2307,'JeyJey',1204,12,'09-apr-2010','11-oct-1972','Domalguda,hyderabad',null,19000.00,'vanam');
+
+1 row created.
+///////////////Inserting values into Student_Master table///////////////////////////////////////////////////////
+
+ insert into Student_Master values(1201,'Priyanka',12,'09-jul-2005','Gachibowly,hyderabad');
+
+1 row created.
+
+SQL> insert into Student_Master values(1202,'Divya',11,'22-dec-2012','Amberpet,hyderabad');
+
+1 row created.
+
+SQL> insert into Student_Master values(902,'Snehitha',11,'22-jun-2009','Amberpet,hyderabad');
+
+1 row created.
+
+SQL> insert into Student_Master values(201,'Prasanna',10,'13-sep-2002','Uppal,hyderabad');
+
+1 row created.
+
+//////////Inserting values into Book_Master table///////////////////////////////////////////////////////////////////////////////////////
+
+SQL> insert into Book_Master values(6601,'DBMS',2003,'Anonymous_&');
+
+1 row created.
+
+SQL> insert into Book_Master values(6602,'CO',2001,'Morrismano');
+
+1 row created.
+
+SQL> insert into Book_Master values(6603,'SE',2002,'kernel');
+
+1 row created.
+
+SQL> insert into Book_Master values(6604,'Erkenci kus',1979,'Jan bey');
+
+1 row created.
+
+SQL> insert into Book_Master values(6605,'swallows&',1985,'Viriean');
+
+1 row created.
+
+SQL>insert into Book_Master values(6606,'panda&',2004,'syria');
+
+1 row created.
+
+/////////////////////////////////////////////////////////////////Book_transactions//////////////////////////////////////
+SQL> insert into Book_Transactions values(6605,1202,2304,'10-jan-2020','30-jan-2020','31-jan-2020');
+
+1 row created.
+
+SQL> insert into Book_Transactions values(6603,902,2306,'30-dec-2019','31-jan-2020','15-feb-2020');
+
+1 row created.
+
+SQL> insert into Book_Transactions values(6601,1201,2301,'21-jan-2020',sysdate,'09-feb-2020');
+
+1 row created.
+
+SQL> insert into Book_Transactions values(6602,201,2303,'15-jan-2020',sysdate,'04-feb-2020');
+
+1 row created.
+
+SQL> insert into Book_Transactions values(6604,801,2305,'20-jan-2020',sysdate,'28-feb-2020');
+
+1 row created.
