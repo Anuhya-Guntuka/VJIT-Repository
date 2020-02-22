@@ -1,0 +1,28 @@
+Questions:
+1.	Name the actors.
+--------Cur_ICENTURIAN ,Sav_ICENTURIAN,Email System,Account Holder......
+2.	Why is the Email System considered as an actor for this system? 
+--------email system is used for organising destination account in transferring funds......
+   //An email with an answer to a specific security question is sent to the recipient of the funds; in addition, separate instructions 
+   are sent to the recipient regarding the retrieval of the funds via a secure website. To access the funds, 
+the recipient must correctly answer a security question. After a set number of incorrect attempts, funds could be returned to the sender. 
+3.How would the above diagram be different if the data sources were designed as part of the application?
+--------Data sources may be databases, web data...etc the information required by the account holder can be retrived using any datasource
+Account holder may use any of the datasource for transferring funds.So diagram will change where actors involving will be account holder,
+bank database,destination account.
+4.Name the use cases that can be invoked by Account Holder.
+-----View Account details
+     View Statements
+     View Account Summary
+     Login
+     Activate Destination Account
+     Create Destination Account
+     Transfer Funds
+     Request Address Change
+5.Which use case has extension points? What are the extended use cases?
+        Transfer funds usecase has extension points.
+--------Create Destination Account
+        Activate Destination Account both usecases are extended one
+6.Does this online system allow the use to pay insurance premiums? If yes, which is the use case? If no, 
+how can the diagram be changed to include that?
+-------------
